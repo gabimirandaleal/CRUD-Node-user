@@ -3,9 +3,7 @@ import { Router } from "express";
 const routes = Router();
 
 import userCreateController from "../controllers/users/userCreate.controller";
-/*
 import userDeleteSelfController from "../controllers/users/userDeleteSelf.controller";
-*/
 import userUpdateController from "../controllers/users/userUpdate.controller";
 import userLoginController from "../controllers/users/userLogin.controller";
 import userListController from "../controllers/users/userList.controller";
@@ -20,6 +18,6 @@ routes.post("/users/login", userLoginController);
 
 routes.patch("/users/:id", userUpdateController);
 
-//routes.delete("/users/:id", authUser, userDeleteSelfController);
+routes.delete("/users/:id", userDeleteSelfController);
 
 export default routes;
