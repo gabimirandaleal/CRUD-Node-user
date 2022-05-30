@@ -14,7 +14,9 @@ const userUpdateService = async (
   const account = users.find((user) => user.id === id);
   const date = new Date();
   let newPassword = "";
-
+  if (!account) {
+    return;
+  }
   if (password) {
     if (bcrypt.compareSync(password, account!.password)) {
       throw new Error("Inform a different password");

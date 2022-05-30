@@ -11,13 +11,13 @@ import userListOneController from "../controllers/users/userListOne.controller";
 import { authUser } from "../middleware/authUser.middleware";
 
 routes.get("/users", userListController);
-routes.get("/users/:id", userListOneController);
+routes.get("/users/:id", authUser, userListOneController);
 
 routes.post("/users", userCreateController);
 routes.post("/users/login", userLoginController);
 
-routes.patch("/users/:id", userUpdateController);
+routes.patch("/users/:id", authUser, userUpdateController);
 
-routes.delete("/users/:id", userDeleteSelfController);
+routes.delete("/users/:id", authUser, userDeleteSelfController);
 
 export default routes;
